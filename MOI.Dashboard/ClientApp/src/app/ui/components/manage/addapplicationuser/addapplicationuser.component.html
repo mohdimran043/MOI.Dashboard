@@ -1,0 +1,106 @@
+<div class="shadow p-2 bg-white" [@fadeInOut]>
+  <!-- <div class="dx-fieldset">
+    <div class="dx-field">
+      <div class="dx-field-label">DropDownBox with embedded TreeView</div>
+      <div class="dx-field-value">
+        
+      </div>
+    </div>
+
+  </div> -->
+
+  <dx-data-grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true" [showColumnLines]="true"
+    [showRowLines]="true" [hoverStateEnabled]="true" [rowAlternationEnabled]="true"
+    (onToolbarPreparing)="onToolbarPreparing($event)" (onRowRemoving)="showConfirmation($event)">
+    <dxo-paging [pageSize]="20"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="false" [allowedPageSizes]="[20, 50, 100]" [showInfo]="false">
+    </dxo-pager>
+    <dxo-editing [allowUpdating]="false" [allowDeleting]="true" [allowAdding]="false"> </dxo-editing>
+
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-export [enabled]="true" fileName="MoiApplications"></dxo-export>
+    <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+
+    <dxi-column width="100" dataField="id" caption="{{'addapplication.id' | translate }}"
+      [filterOperations]="['contains', '=']">
+    </dxi-column>
+    <dxi-column dataField="name" caption="{{'addapplication.name' | translate }}"
+      [filterOperations]="['contains', '=']"></dxi-column>
+    <dxi-column dataField="domainUser" caption="{{'addapplication.username' | translate }}"
+      [filterOperations]="['contains', '=']"></dxi-column>
+    <dxi-column dataField="createdBy" caption="{{'addapplication.createdby' | translate }}"
+      [filterOperations]="['contains', '=']"></dxi-column>
+    <dxi-column dataField="createdDate" caption="{{'addapplication.createddate' | translate }}" dataType="date"
+      [format]="{ type: 'dd/MM/yyyy' }" [filterOperations]="['contains', '=']"></dxi-column>
+      <dxi-column  cellTemplate="btncelltemplate"  [allowFiltering]="false" width="40"> </dxi-column>
+      <div *dxTemplate="let data of 'btncelltemplate'">
+        <div class="div-model">
+            <a class="dx-link dx-link-edit dx-icon-edit" title="Edit" aria-label="Edit" tabindex="-1" (click)="ShowUpdatePopup(data['row'].data)"></a>
+        </div>
+      </div>
+
+  </dx-data-grid>
+
+  <dx-popup class="popup" [width]="1200" [height]="550" [showTitle]="true"
+    title="{{'appapplicationuser.addTitle' | translate }}" [showCloseButton]="true" [dragEnabled]="true"
+    [closeOnOutsideClick]="true" [(visible)]="popupVisible">
+    <div *dxTemplate="let data of 'content'">
+      <table class="table">
+
+        <tr>
+          <td class="dx-header-row">
+            <label>{{'addapplication.name' | translate }}</label>
+          </td>
+          <td>
+            <dx-text-box name="txtusername" [(ngModel)]="applicationusername"></dx-text-box>
+          </td>
+          <td class="dx-header-row">
+            <label>{{'appapplicationuser.displayname' | translate }}</label>
+          </td>
+          <td>
+            <dx-text-box name="txtdisplayname" [(ngModel)]="applicationdisplayname"></dx-text-box>
+          </td>
+        </tr>
+        <tr>
+          <td class="dx-header-row">
+            <label>{{'appapplicationuser.userroles' | translate }}</label>
+          </td>
+          <td colspan="3">
+            <dx-drop-down-box [(value)]="treeBoxValue" valueExpr="id" displayExpr="name" placeholder="Select a ROLE..."  wordWrapEnabled="true"
+              [showClearButton]="true" [dataSource]="treeDataSource" (onValueChanged)="syncTreeViewSelection()">
+              <div *dxTemplate="let data of 'content'">
+                <dx-tree-view [dataSource]="treeDataSource" dataStructure="plain" keyExpr="id"
+                  selectionMode="multiple" showCheckBoxesMode="normal" displayExpr="name"
+                  [selectByClick]="true" (onContentReady)="syncTreeViewSelection($event)"
+                  (onItemSelectionChanged)="treeView_itemSelectionChanged($event)">
+                </dx-tree-view>
+              </div>
+            </dx-drop-down-box>
+          </td>
+
+        </tr>
+
+        <tr>
+
+          <td colspan="4">
+            <div *ngIf="fieldmissing">
+              <label title="{{'appapplicationuser.mandatoryfile' | translate }}"></label>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <br />
+      <div style="float:left">
+        <button (click)="hdntrans === 'I' ? RowAdd($event) :  RowAdd($event) " data-dismiss="modal" class="btn btn-primary"><i
+            class="fa fa-save"></i>{{'appapplicationuser.save' | translate }}</button>
+
+        <button (click)="ClosePopup()" data-dismiss="modal" class="btn btn-danger"><i
+            class="fa fa-times"></i>{{'appapplicationuser.cancel' | translate }}</button>
+      </div>
+    </div>
+  </dx-popup>
+
+
+
+</div>

@@ -1,0 +1,43 @@
+<div class="shadow p-2 bg-white" [@fadeInOut]>
+    <dx-data-grid id="gridContainer" [dataSource]="dataSource" [showBorders]="true" 
+                  [showColumnLines]="true"
+                  [showRowLines]="true"
+                  [hoverStateEnabled]="true" [rowAlternationEnabled]="true" (onToolbarPreparing)="onToolbarPreparing($event)"
+                  (onRowRemoving)="showConfirmation($event)" (onEditorPreparing)="onEditorPreparingCustom($event)">  
+      <dxo-paging [pageSize]="20"></dxo-paging>
+      <dxo-pager [showPageSizeSelector]="false" [allowedPageSizes]="[20, 50, 100]" [showInfo]="false">
+      </dxo-pager>
+  
+      <dxo-editing mode="popup"
+                   [texts]="{confirmDeleteMessage:''}"
+                   [allowUpdating]="true" [allowDeleting]="true" [allowAdding]="true">
+        <dxo-popup [width]=400
+                   [height]=400
+                   title="أدخل التفاصيل"
+                   [showTitle]="true"
+                   [showCloseButton]="true"
+                   [closeOnOutsideClick]="true"
+                   [position]="{ my: 'center', at: 'center', of: 'window' }"
+                   [toolbarItems]="addPopupToolbarOptions">
+        </dxo-popup>
+        <dxo-form labelLocation="top" [colCount]=1>
+          <dxi-item dataField="id">        
+          </dxi-item>
+          <dxi-item dataField="name">
+            <dxi-validation-rule type="required" message="الرجاء إدخال نوع الحادث"></dxi-validation-rule>
+          </dxi-item>
+        </dxo-form>
+      </dxo-editing>
+  
+      <dxo-selection mode="single"></dxo-selection>
+      <dxo-export [enabled]="true" fileName="MoiApplicationRole"></dxo-export>
+      <dxo-grouping [autoExpandAll]="true"></dxo-grouping>
+      <dxo-filter-row [visible]="true"></dxo-filter-row>
+  
+      <dxi-column dataField="id" caption="{{'addapplication.id' | translate }}" [filterOperations]="['contains', '=']"></dxi-column>
+      <dxi-column dataField="name" caption="{{'addapplication.name' | translate }}"  [filterOperations]="['contains', '=']"></dxi-column>
+      <dxi-column dataField="createdBy" caption="{{'addapplication.createdby' | translate }}"  [filterOperations]="['contains', '=']"></dxi-column>
+      <dxi-column dataField="createdDate" caption="{{'addapplication.createddate' | translate }}"  dataType="date"
+       [format]="{ type: 'dd/MM/yyyy' }"  [filterOperations]="['contains', '=']"></dxi-column>
+    </dx-data-grid>
+  </div>

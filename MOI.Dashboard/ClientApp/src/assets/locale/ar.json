@@ -1,0 +1,28 @@
+{
+  "switchLanguage": "English",
+  "app": {
+    "signInSuccess": "سجل النجاح",
+    "switchLanguage": "EN",
+    "title": "إدارة إذن"
+  },
+  "mainMenu": {
+    "Logout": "الخروج",
+    "Setting": "ضبط"
+  },
+  "addapplication":{
+    "id":"ID",
+    "name":"Name",
+    "username":"User Name",
+    "createdby":"Created By",
+    "createddate":"Created Date",
+    "role":"Role"
+  },
+  "appapplicationuser":{
+    "addTitle":"User Detail",
+    "userName":"User Name",
+    "displayname":"Display Name",
+    "userroles":"User Role",
+    "save":"Save",
+    "cancel":"Cancel"
+  }
+}

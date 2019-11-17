@@ -1,0 +1,9 @@
+﻿using System.Threading.Tasks;
+
+namespace MOI.Patrol.Interface
+{
+    public interface ITypedHubClient
+    {
+        Task BroadcastMessage(string type, string payload, string orgId, string callerId);
+    }
+}

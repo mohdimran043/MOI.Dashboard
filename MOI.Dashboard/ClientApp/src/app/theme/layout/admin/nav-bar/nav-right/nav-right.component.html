@@ -1,0 +1,70 @@
+<ul class="navbar-nav">
+  <li appToggleFullScreen><a href="javascript:" class="full-screen"><i class="feather icon-maximize feather26"></i></a></li>  
+  <!-- <li (click)="this.visibleUserList = !this.visibleUserList;"><a class="displayChatbox"><i class="icon feather icon-mail feather26"></i></a><div class="notificaiton-count">{{ getUnReadMessageCount() }}</div></li> -->
+  <!-- <li>
+    <div class="dropdown" ngbDropdown [placement]="['bottom-left', 'bottom-right']">
+      <a ngbDropdownToggle href="javascript:" data-toggle="dropdown"><i class="icon feather icon-bell feather26"></i></a>
+      <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right notification">
+        <div class="noti-head">
+          <h6 class="d-inline-block m-b-0">Notifications</h6>
+          <div class="float-right">
+            <a href="javascript:">clear all</a>
+          </div>
+        </div>
+        <ul class="noti-body">
+          <li class="notification" *ngFor="let notification of  (notificationList| slice:0:3) ; trackBy: trackItem">
+            <div class="media">
+              <img class="img-radius" src="assets/images/user/user.png" alt="Generic placeholder image">
+              <div class="media-body">
+                <p><strong>{{ notification.name }}</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>{{ notification.time | amTimeAgo}}</span></p>
+                <p>Caller Id {{ notification.callerId }} made a Call</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+       
+        <div class="noti-footer">
+          <a href="javascript:">show all</a>
+        </div>
+      </div>
+    </div>
+  </li> -->
+
+  <li>
+    <div class="dropdown drp-user" ngbDropdown [placement]="['bottom-left', 'bottom-right']">
+      <a style="font-size:1.9em;cursor:pointer" ngbDropdownToggle data-toggle="dropdown">
+        <!--<i class="icon feather icon-user feather26"></i>-->
+        <span>{{ User.empDisplayName }}</span>
+        <span></span>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right profile-notification" ngbDropdownMenu>
+        <div class="pro-head">
+          <img src="assets/images/user/user.png" class="img-radius" alt="User-Profile-Image">
+          <span>{{ User.empDisplayName }}</span>
+        </div>
+        <ul class="pro-body">
+          <li><a href="javascript:" class="dropdown-item" (click)="onConfigClick()"><i class="feather icon-settings"></i> {{'mainMenu.Setting' | translate}} </a></li>
+          <li><a href="javascript:" class="dropdown-item" (click)="changeLanguage()"> {{'switchLanguage' | translate}} <i class="fas fa-flag"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!-- FOR LTR MODE
+
+    <section class="header-user-list" *ngIf="visibleUserList && !this.dattaConfig['rtl-layout']" [ngClass]="{'open': visibleUserList}" [@slideInOutLeft]>
+  <app-chat-user-list (onChatToggle)="onChatToggle($event)" (onChatCollapse)="this.visibleUserList = !this.visibleUserList; this.chatMessage = false;"></app-chat-user-list>
+</section>
+
+<section class="header-chat" *ngIf="chatMessage && !this.dattaConfig['rtl-layout']" [ngClass]="{'open': chatMessage}" [@slideInOutLeft]>
+  <app-chat-msg (onChatToggle)="this.chatMessage = !this.chatMessage" [friendId]="friendId"></app-chat-msg>
+</section>-->
+
+<section class="header-user-list" *ngIf="visibleUserList && this.dattaConfig['rtl-layout']" [ngClass]="{'open': visibleUserList}" [@slideInOutRight]>
+  <app-chat-user-list (onChatToggle)="onChatToggle($event)" (onChatCollapse)="this.visibleUserList = !this.visibleUserList; this.chatMessage = false;"></app-chat-user-list>
+</section>
+
+<section class="header-chat" *ngIf="chatMessage && this.dattaConfig['rtl-layout']" [ngClass]="{'open': chatMessage}" [@slideInOutRight]>
+  <app-chat-msg (onChatToggle)="this.chatMessage = !this.chatMessage" [friendId]="friendId"></app-chat-msg>
+</section>

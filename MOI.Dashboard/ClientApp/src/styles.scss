@@ -1,0 +1,256 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "scss/variables";
+
+/* fonts-icon */
+@import "scss/fonts/fontawesome/scss/fontawesome";
+@import "scss/fonts/feather/iconfont";
+
+@import url("scss/fonts/datta/datta-icons.css");
+/** custom font icons - datta **/
+@import "scss/general";
+@import "scss/generic";
+@import "scss/mixins/function";
+
+/* important element */
+@import "scss/menu/menu-lite";
+@import "scss/widget/widget";
+
+/* basic elements */
+@import "scss/theme-elements/theme-elements";
+
+/* advance-other elements */
+@import "scss/other/other";
+
+/* third party modules style*/
+@import "scss/plugins/plugins";
+
+@import "scss/layout/layout";
+@import "scss/custom";
+
+@import "~dragula/dist/dragula.css";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/*@import "~mapbox-gl/dist/mapbox-gl.css";*/
+/*@import url('assets/mapbox/mapbox-gl.css');*/
+.dx-texteditor-input {
+  font-family: "Open Sans", "Tajawal", sans-serif !important;
+}
+
+.dx-widget,
+.dx-item,
+.dx-tag-content span,
+.dx-lookup-field,
+.dx-overlay-wrapper {
+  font-family: "Open Sans", "Tajawal", sans-serif !important;
+}
+
+.dx-header-row {
+  background-color: lighten(#3f4d67, 10%) !important;
+
+  label {
+    color: ivory !important;
+  }
+}
+
+.dx-header-row td {
+  color: ivory !important;
+  font-weight: 700 !important;
+  font-size: larger !important;
+}
+
+.dx-popup-title {
+  background-color: lighten(#3f4d67, 10%);
+  color: ivory !important;
+}
+
+.dx-field-item-label-text {
+  font-size: large;
+}
+
+.dx-field-item-required-mark {
+  color: red;
+  margin-left: 5px;
+}
+
+.custom-icon {
+  font-size: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  padding-top: 0.7em;
+}
+
+.dx-data-row {
+  td {
+    div {
+      .dx-numberbox {
+        .dx-texteditor-container {
+          .dx-texteditor-input-container {
+            input {
+              text-align: center !important;
+              background-color: lightblue;
+              margin: 5px;
+              border: 1px solid #333;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dx-list-item {
+  .dx-list-item-content {
+    .row {
+      .col-3 {
+        .dx-numberbox {
+          .dx-texteditor-container {
+            .dx-texteditor-input-container {
+              input {
+                text-align: center !important;
+                background-color: lightblue;
+                padding: 10px 0px;
+                border: 1px solid #333;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dx-list-item-badge-container {
+  .dx-list-item-badge.dx-badge {
+    padding: 4px 7px;
+    font-size: 16px !important;
+  }
+}
+
+
+.dx-datagrid-headers .dx-datagrid-table .dx-row>td {
+  line-height: 20px !important;
+}
+
+.hide {
+  display: none;
+}
+
+.hover {
+  cursor: pointer;
+}
+
+.inline-icon {
+  background-color: #526587 !important;
+}
+
+body.datta-rtl .pcoded-header .dropdown .dropdown-toggle::after {
+  left: inherit !important;
+}
+
+.icon>img,
+.image {
+  width: 60px !important;
+  height: 40px !important;
+}
+
+.img-operations-person-state,
+.dispinline,
+.dispnone {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.dx-label {
+  width: 10% !important;
+}
+
+.dx-td-value {
+  width: 40% !important;
+}
+
+.tbl-view-incident td {
+  border: 1px dotted black !important;
+}
+
+/*.dx-datagrid-rowsview .dx-row > .dx-master-detail-cell {
+  padding: 0px;
+}*/
+
+
+.distresscall-popup .dx-overlay-content {
+  background: rgb(238, 174, 202);
+  background: -moz-radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca", endColorstr="#94bbe9", GradientType=1);
+}
+
+.distresscall-popup .dx-popup-title {
+  /*color: white;
+  background-color: palevioletred;*/
+}
+
+.operation-main-gridview .dx-datagrid,
+.operation-main-gridview .dx-datagrid-table .dx-data-row td {
+  font-size: 0.95em !important;
+  font-weight: bold !important;
+}
+
+.patrol-logo {
+  width: 58px;
+  height: 58px;
+  transform: none !important;
+  opacity: 1 !important;
+  border-radius:5px !important;
+}
+
+.img-patrol-request-app {
+  width: 30px !important;
+  height: 30px;
+}
+
+.notificaiton-count {
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(-135deg, rgb(29, 233, 182) 0%, rgb(29, 196, 233) 100%);
+  background-origin: padding-box;
+  background-position: 0% 0%;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  background-repeat: repeat;
+  background-size: auto;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-family: open sans, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  height: 22px;
+  line-height: 21px;
+
+  position: absolute;
+  width: 22px;
+
+
+  text-align: center;
+  top: 2px;
+  margin-right: -12px;
+}
+
+.esri-attribution {
+  display: none !important;
+}
+
+.esri-popup__main-container {
+  opacity: 0.7;
+}
+.dx-list-item-content {  
+  word-wrap: break-word;  
+  white-space: normal;  
+}

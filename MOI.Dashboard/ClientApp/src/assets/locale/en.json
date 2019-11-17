@@ -1,0 +1,12 @@
+{
+  "switchLanguage": "العربية",
+  "app": {
+    "signInSuccess": "Signed in successfully",
+    "switchLanguage": "AR",
+    "title": "دورية"
+  },
+  "mainMenu": {
+    "Logout": "Logout",
+    "Setting": "Setting"
+  }
+}

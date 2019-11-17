@@ -1,0 +1,16 @@
+.feather26 {
+    font-size: 26px;
+}
+
+.span-hyperlink {
+    padding-bottom: 40px;
+    font-weight: 600;
+}
+
+.span-hyperlink:hover {
+    color: #04a9f5;
+    cursor: pointer;
+    strong {
+        text-decoration: underline;
+    }
+}
