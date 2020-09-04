@@ -96,7 +96,7 @@
     "ngx-echarts": "^4.2.1",
     "ngx-moment": "^3.4.0",
     "ngx-perfect-scrollbar": "^8.0.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.1",
     "nonblockjs": "^1.0.8",
     "nvd3": "^1.8.6",
     "peity": "^3.3.0",
